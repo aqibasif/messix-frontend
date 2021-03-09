@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './stylesheet.css';
 import Navbar from './navbar';
+import AppBody from './appBody';
+import './stylesheet.css';
 
 class Application extends Component {
   state = {};
@@ -8,6 +9,7 @@ class Application extends Component {
     return (
       <div className='application'>
         <Navbar />
+        <AppBody />
       </div>
     );
   }

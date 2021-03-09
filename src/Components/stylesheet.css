@@ -1,12 +1,12 @@
 html {
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-  }
-  
-  body {
-    overflow-x: hidden;
-  }
-  
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
 
 /*===\ Global Variables \===*/
 
@@ -14,88 +14,33 @@ html {
   --primary: #019ef7;
   --sky: #cceafc;
   --light: #f6f6f6;
-  --gray: #e8e8e8;
+  --gray: #d4d4d4;
   --dark: #2b2b2b;
   --medium-dark: #616161;
 
   --radius: 25px;
 
   --small-shadow: 5px 5px 15px 0 rgba(139, 139, 139, 0.2);
-  --large-shadow: 5px 30px 30px 0 rgba(139, 139, 139, 0.25);
+  --large-shadow: 0px 10px 10px 0 rgba(97, 97, 97, 0.28);
 
   --xlarge-text: 60px;
   --large-text: 40px;
-  --medium-text: 30px;
-  --small-text: 12px;
+  --medium-text: 25px;
+  --small-text: 11px;
 }
 
 /*===\ Animations \===*/
 
-@keyframes slide-up-flat {
-  0% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(0%);
-  }
-}
 
-@keyframes notify {
+@keyframes slide-up {
   0% {
-    transform: translateX(120%);
-  }
-  15% {
-    transform: translateX(0%);
-  }
-  85% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(120%);
-  }
-}
-
-@keyframes spinning {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes pop-out {
-  0% {
-    transform: scale(1.5);
+    transform: translateY(120%);
     opacity: 0;
-  }
-  60% {
-    transform: scale(0.95);
-    opacity: 0.7;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-down-bounce {
-  0% {
-    transform: translateY(-120%);
-    opacity: 0;
-  }
-  60% {
-    transform: translateY(20%);
-    opacity: 0.7;
   }
   100% {
     transform: translateY(0%);
     opacity: 1;
   }
-}
-
-/*===\ Application \===*/
-.application {
 }
 
 /*===\ Navbar \===*/
@@ -107,12 +52,12 @@ html {
   justify-content: space-between;
   width: 100vw;
   position: fixed;
-  webkit-backdrop-filter: saturate(180%) blur(20px);
-  backdrop-filter: saturate(180%) blur(20px);
-  background-color: rgba(255, 255, 255, 0.7);
+  webkit-backdrop-filter: saturate(180%) blur(15px);
+  backdrop-filter: saturate(180%) blur(15px);
+  background-color: rgba(255, 255, 255, 0.1);
   border-bottom: 0.1px solid var(--gray);
   z-index: 4;
-  height: 70px;
+  height: 50px;
   /* animation: 0.5s navbar-slide-down 0.4s ease-out both; */
 }
 
@@ -123,10 +68,10 @@ html {
 }
 
 .user-info {
-    padding: 0px 30px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+  padding: 0px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .top-navbar p {
@@ -136,3 +81,96 @@ html {
   font-size: var(--small-text);
   font-weight: 600;
 }
+
+/*===\ App Body \===*/
+
+.app-body {
+  width: 100%;
+}
+
+/*===\ Contacts \===*/
+
+.contacts {
+  width: 340px;
+  border-right: 0.1px solid var(--gray);
+  height: 83vh;
+  overflow-y: auto;
+  padding-top: 90px;
+}
+
+.search-bar {
+  height: 40px;
+  webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  background-color: rgba(255, 255, 255, 0.6);
+
+  width: 340px;
+  position: fixed;
+  top: 50px;
+  border: 0.1px solid var(--gray);
+  
+}
+
+.search-input {
+  width: 320px;
+  border: 0px;
+  height: 40px;
+  background-color: transparent;
+  border-radius: 0px;
+  padding-left: 20px;
+  font-size: 12px;
+  color: #202020;
+}
+
+.contact {
+  height: 80px;
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 0.1px solid var(--gray);
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+
+  animation: 0.5s slide-up 0s ease-out both
+}
+
+.contact:hover {
+  background-color: var(--primary);
+  border-bottom: 0.1px solid var(--primary);
+  box-shadow: var(--large-shadow);
+}
+
+.contact h5 {
+  color: var(--dark);
+  transition: all ease-in-out 0.3s;
+}
+
+.contact:hover h5 {
+    color: white;
+}
+
+.profile-pic {
+    display: flex;
+    margin: 0px 15px;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 30px;
+    background-color: var(--primary);
+    color: white;
+    transition: all ease-in-out 0.3s;
+}
+
+.contact:hover .profile-pic {
+  color: var(--primary);
+  background-color: white;
+}
+
+.profile-pic p {
+  margin: 0px;
+  font-weight: 500;
+  font-size: 15px;
+}
+
