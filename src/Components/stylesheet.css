@@ -1,0 +1,138 @@
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    overflow-x: hidden;
+  }
+  
+
+/*===\ Global Variables \===*/
+
+:root {
+  --primary: #019ef7;
+  --sky: #cceafc;
+  --light: #f6f6f6;
+  --gray: #e8e8e8;
+  --dark: #2b2b2b;
+  --medium-dark: #616161;
+
+  --radius: 25px;
+
+  --small-shadow: 5px 5px 15px 0 rgba(139, 139, 139, 0.2);
+  --large-shadow: 5px 30px 30px 0 rgba(139, 139, 139, 0.25);
+
+  --xlarge-text: 60px;
+  --large-text: 40px;
+  --medium-text: 30px;
+  --small-text: 12px;
+}
+
+/*===\ Animations \===*/
+
+@keyframes slide-up-flat {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes notify {
+  0% {
+    transform: translateX(120%);
+  }
+  15% {
+    transform: translateX(0%);
+  }
+  85% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes spinning {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pop-out {
+  0% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-down-bounce {
+  0% {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(20%);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+/*===\ Application \===*/
+.application {
+}
+
+/*===\ Navbar \===*/
+
+.top-navbar {
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  position: fixed;
+  webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  background-color: rgba(255, 255, 255, 0.7);
+  border-bottom: 0.1px solid var(--gray);
+  z-index: 4;
+  height: 70px;
+  /* animation: 0.5s navbar-slide-down 0.4s ease-out both; */
+}
+
+.top-navbar h4 {
+  margin: 0px;
+  letter-spacing: 4px;
+  padding: 0px 30px;
+}
+
+.user-info {
+    padding: 0px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.top-navbar p {
+  margin: 0px;
+  padding-left: 40px;
+  color: var(--medium-dark);
+  font-size: var(--small-text);
+  font-weight: 600;
+}
