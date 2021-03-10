@@ -144,6 +144,21 @@ input[type='password']:focus {
   font-weight: 600;
 }
 
+@media (max-width: 468px) {
+  .top-navbar h4 {
+    letter-spacing: 2px;
+    padding: 0px 10px;
+  }
+
+  .user-info {
+    padding: 0px 14px;
+  }
+
+  .top-navbar p {
+    padding-left: 25px;
+  }
+}
+
 /*===\ App Body \===*/
 
 .app-body {
@@ -205,7 +220,6 @@ input[type='password']:focus {
   animation: 0.5s slide-up 0s ease-out both;
 }
 
-
 .contact:hover {
   background-color: var(--primary);
   border-bottom: 0.1px solid var(--primary);
@@ -234,7 +248,6 @@ input[type='password']:focus {
   transition: all ease-in-out 0.3s;
 }
 
-
 .selected-contact {
   height: 80px;
   padding: 0px 20px;
@@ -247,7 +260,7 @@ input[type='password']:focus {
   box-shadow: var(--large-shadow);
   cursor: pointer;
   transition: all ease-in-out 0.3s;
-  
+
   animation: 0.5s slide-up 0s ease-out both;
 }
 
@@ -261,7 +274,6 @@ input[type='password']:focus {
   background-color: white;
   transition: all ease-in-out 0.3s;
   color: var(--primary);
-  
 }
 
 .contact:hover .profile-pic {
@@ -273,6 +285,22 @@ input[type='password']:focus {
   margin: 0px;
   font-weight: 500;
   font-size: 15px;
+}
+
+@media (max-width: 468px) {
+  .contact {
+    padding: 0px 5px;
+  }
+
+  .profile-pic {
+    margin: 0px 5px;
+    height: 30px;
+    width: 30px;
+  }
+
+  .selected-contact {
+    padding: 0px 5px;
+  }
 }
 
 /*==============\  Login  \===========*/
@@ -353,7 +381,7 @@ input[type='password']:focus {
   justify-content: center;
 }
 
-.no-chat p{
+.no-chat p {
   font-size: var(--small-text);
   color: var(--medium-dark);
   padding-bottom: 70px;
@@ -371,6 +399,18 @@ input[type='password']:focus {
   border-radius: 25px;
   width: 250px;
   margin: 5px 15px;
+
+  animation: 0.3s slide-up-small 0s ease-out both;
+}
+
+@media (max-width: 468px) {
+  .message-box {
+    padding: 10px 12px;
+    border-radius: 15px;
+    width: 150px;
+    margin: 8px 5px;
+    font-size: var(--small-text);
+  }
 }
 
 .receiver {
@@ -452,6 +492,14 @@ input[type='password']:focus {
   cursor: pointer;
   border: 0px;
   transition: all ease-in-out 0.3s;
+}
+
+@media (max-width: 468px) {
+  .message-input button {
+    letter-spacing: 1px;
+    padding-right: 10px;
+    padding-left: 20px;
+  }
 }
 
 .message-input button:disabled:hover {
