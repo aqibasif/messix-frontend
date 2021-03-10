@@ -28,7 +28,6 @@ a {
   color: var(--primary);
 }
 
-
 input[type='text'] {
   background-color: transparent;
   color: #444444;
@@ -60,7 +59,6 @@ input[type='password']:focus {
   border: 0.1px solid #202020;
   box-shadow: 0 0 0 0rem rgba(212, 212, 212, 0.733) !important;
 }
-
 
 /*===\ Global Variables \===*/
 
@@ -118,7 +116,7 @@ input[type='password']:focus {
   position: fixed;
   webkit-backdrop-filter: saturate(180%) blur(15px);
   backdrop-filter: saturate(180%) blur(15px);
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.3);
   border-bottom: 0.1px solid var(--gray);
   z-index: 4;
   height: 50px;
@@ -150,12 +148,15 @@ input[type='password']:focus {
 
 .app-body {
   width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 /*===\ Contacts \===*/
 
 .contacts {
-  width: 340px;
+  width: 30%;
   border-right: 0.1px solid var(--gray);
   height: 83vh;
   overflow-y: auto;
@@ -164,20 +165,22 @@ input[type='password']:focus {
 
 .search-bar {
   height: 41px;
-  webkit-backdrop-filter: saturate(180%) blur(20px);
-  backdrop-filter: saturate(180%) blur(20px);
-  background-color: rgba(255, 255, 255, 0.6);
+  webkit-backdrop-filter: saturate(180%) blur(15px);
+  backdrop-filter: saturate(180%) blur(15px);
+  background-color: rgba(255, 255, 255, 0.3);
 
-  width: 340px;
+  width: 30%;
   position: fixed;
   top: 50px;
-  /* border: 0.1px solid var(--gray); */
-  border-bottom: 0px;
+  border: 0.1px solid var(--gray);
+  /* border-bottom: 0px; */
+  border-top: 0px;
   z-index: 2;
+  overflow-x: hidden;
 }
 
 .search-input {
-  width: 318px;
+  width: 96%;
   border: 0px;
   height: 40px;
   background-color: transparent;
@@ -188,7 +191,6 @@ input[type='password']:focus {
   font-size: 12px;
   color: #202020;
 }
-
 
 .contact {
   height: 80px;
@@ -206,7 +208,7 @@ input[type='password']:focus {
 .contact:hover {
   background-color: var(--primary);
   border-bottom: 0.1px solid var(--primary);
-  /* box-shadow: var(--large-shadow); */
+  box-shadow: var(--large-shadow);
 }
 
 .contact h5 {
@@ -253,8 +255,6 @@ input[type='password']:focus {
     padding: 110px 30px 100px 30px;
   }
 }
-
-
 
 .form-group {
   width: 100%;
@@ -303,4 +303,100 @@ input[type='password']:focus {
 .login-btn:disabled {
   background-color: #acd6ee;
   border-color: #acd6ee;
+}
+
+/*========\ Chat Section \========*/
+
+.chat-section {
+  width: 70%;
+  background-color: var(--light);
+  height: 83vh;
+  overflow-y: auto;
+  padding-top: 50px;
+  position: relative;
+}
+
+.message {
+  width: 100%;
+  /* background-color: #019ef7; */
+  display: flex;
+  align-items: center;
+}
+
+.message-box {
+  padding: 15px 20px;
+  border-radius: 15px;
+  width: 250px;
+  margin: 5px 15px;
+}
+
+.receiver {
+  justify-content: flex-start;
+}
+
+.receiver-message-box {
+  background-color: var(--gray);
+}
+
+.sender {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+
+.sender-message-box {
+  background-color: var(--primary);
+  color: white;
+}
+
+.time {
+  color: rgb(71, 71, 71);
+  font-size: var(--small-text);
+}
+
+.free-space {
+  padding-top: 20px;
+}
+
+.message-input {
+  width: 70%;
+  position: fixed;
+  height: 50px;
+  border-top: 0.1px solid var(--gray);
+  border-left: 0.1px solid var(--gray);
+  bottom: 0px;
+  right: 0px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  webkit-backdrop-filter: saturate(180%) blur(15px);
+  backdrop-filter: saturate(180%) blur(15px);
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.message-input .form-group {
+  margin-left: 5px;
+}
+
+.message-input button {
+  margin: 0px;
+  letter-spacing: 2px;
+  color: var(--primary);
+  padding: 0px 10px;
+  padding-right: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 0px;
+  transition: all ease-in-out 0.3s;
+}
+
+.message-input button:disabled:hover {
+  color: var(--primary);
+}
+
+.message-input button:hover {
+  color: #0b78b8;
+  background-color: transparent;
+  border: 0px;
 }
