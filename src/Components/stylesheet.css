@@ -205,6 +205,7 @@ input[type='password']:focus {
   animation: 0.5s slide-up 0s ease-out both;
 }
 
+
 .contact:hover {
   background-color: var(--primary);
   border-bottom: 0.1px solid var(--primary);
@@ -231,6 +232,36 @@ input[type='password']:focus {
   background-color: var(--primary);
   color: white;
   transition: all ease-in-out 0.3s;
+}
+
+
+.selected-contact {
+  height: 80px;
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 0.1px solid var(--primary);
+  background-color: var(--primary);
+  border-bottom: 0.1px solid var(--primary);
+  box-shadow: var(--large-shadow);
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+  
+  animation: 0.5s slide-up 0s ease-out both;
+}
+
+.selected-contact h5 {
+  color: white;
+  transition: all ease-in-out 0.3s;
+}
+
+.selected-contact .profile-pic {
+  border-bottom: 0.1px solid var(--primary);
+  background-color: white;
+  transition: all ease-in-out 0.3s;
+  color: var(--primary);
+  
 }
 
 .contact:hover .profile-pic {
@@ -312,8 +343,20 @@ input[type='password']:focus {
   background-color: var(--light);
   height: 83vh;
   overflow-y: auto;
-  padding-top: 50px;
+  padding-top: 95px;
   position: relative;
+}
+
+.no-chat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-chat p{
+  font-size: var(--small-text);
+  color: var(--medium-dark);
+  padding-bottom: 70px;
 }
 
 .message {
@@ -325,7 +368,7 @@ input[type='password']:focus {
 
 .message-box {
   padding: 15px 20px;
-  border-radius: 15px;
+  border-radius: 25px;
   width: 250px;
   margin: 5px 15px;
 }
@@ -354,7 +397,26 @@ input[type='password']:focus {
 }
 
 .free-space {
-  padding-top: 20px;
+  padding-top: 50px;
+}
+
+.contact-name {
+  width: 70%;
+  position: fixed;
+  height: 40px;
+  border-top: 0.1px solid var(--gray);
+  border-left: 0.1px solid var(--gray);
+  top: 50px;
+  right: 0px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  webkit-backdrop-filter: saturate(180%) blur(15px);
+  backdrop-filter: saturate(180%) blur(15px);
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: var(--small-shadow);
 }
 
 .message-input {
@@ -373,6 +435,7 @@ input[type='password']:focus {
   webkit-backdrop-filter: saturate(180%) blur(15px);
   backdrop-filter: saturate(180%) blur(15px);
   background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: var(--small-shadow);
 }
 
 .message-input .form-group {
