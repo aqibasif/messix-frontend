@@ -3,25 +3,6 @@ import Input from './Common/input';
 import Message from './message';
 import { saveChat, getChat } from '../services/chatService';
 
-// const chat2 = [
-//   {
-//     user: '6047d53969675a3247d04697',
-//     message: 'Hi, How are you?',
-//     time: 'Wed Mar 10 2021 13:56:17 GMT+0500 (PKT)',
-//   },
-//   {
-//     user: '2',
-//     message: 'Hi, Im good and you?',
-//     time: 'Wed Mar 10 2021 13:56:18 GMT+0500 (PKT)',
-//   },
-//   {
-//     user: '6047d53969675a3247d04697',
-//     message:
-//       'What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industrys standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has?',
-//     time: 'Wed Mar 10 2021 13:56:19 GMT+0500 (PKT)',
-//   },
-// ];
-
 const ChatSection = ({ user, currentContact }) => {
   const [chat, setChat] = useState([]);
   const [prevChat, setPrevChat] = useState({});
