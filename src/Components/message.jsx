@@ -13,7 +13,7 @@ const Message = ({ _id, user, message, time }) => {
       >
         {message}
       </div>
-      <p className='time'>{moment(time).format('LT')}</p>
+      <p className='time'>{moment(new Date(time)).format('LT')}</p>
     </div>
   );
 };
