@@ -18,6 +18,7 @@ const AppBody = () => {
   return (
     <div className='app-body'>
       <Contacts
+        user={auth.getCurrentUser()}
         selectContact={selectContact}
         currentContact={selectedContact}
       />

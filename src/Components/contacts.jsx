@@ -12,22 +12,21 @@ const contacts2 = [
   { _id: '7', username: 'Naeem' },
 ];
 
-const Contacts = ({ currentContact, selectContact }) => {
+const Contacts = ({ user, currentContact, selectContact }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [contacts, setContacts] = useState(contacts2);
   var delay = 0;
 
-  const populateUsers = async () => {
-    const { data } = await getUsers();
-    console.log(data)
+  const populateUsers = async (user) => {
+    var { data } = await getUsers();
     // selectContact(data[0]);
+    data = data.filter((d) => d._id !== user._id);
     setContacts(data);
   };
-  
-  useEffect(() => {
-    populateUsers();
-  }, []);
 
+  useEffect(() => {
+    populateUsers(user);
+  }, [user]);
 
   const handleSearch = (query) => {
     setSearchQuery(query);

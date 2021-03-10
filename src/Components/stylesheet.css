@@ -73,7 +73,7 @@ input[type='password']:focus {
   --radius: 25px;
 
   --small-shadow: 5px 5px 15px 0 rgba(139, 139, 139, 0.2);
-  --large-shadow: 0px 10px 10px 0 rgba(97, 97, 97, 0.28);
+  --large-shadow: 0px 7px 17px 0 rgba(97, 97, 97, 0.3);
 
   --xlarge-text: 60px;
   --large-text: 40px;
