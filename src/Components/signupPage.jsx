@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
 import Joi from 'joi-browser';
 import Input from './Common/input';
-import { Link, Redirect } from 'react-router-dom';
+import * as userService from '../services/userService';
 import auth from '../services/authService';
+import { Redirect, Link } from 'react-router-dom';
 
-class LoginPage extends Component {
+class SignupPage extends Component {
   state = {
     data: { username: '', password: '' },
     errors: {},
     isProcessing: false,
   };
 
+  schema = {
+    username: Joi.string().required().label('Username'),
+    password: Joi.string().required().min(5).label('Password'),
+  };
+
   componentDidMount() {
     window.scrollTo(0, 0);
   }
-
-  schema = {
-    username: Joi.string().required().label('Username'),
-    password: Joi.string().required().label('Password'),
-  };
 
   validate = () => {
     const options = { abortEarly: false };
@@ -62,10 +63,13 @@ class LoginPage extends Component {
     try {
       this.setState({ isProcessing: true });
       const { data } = this.state;
-      await auth.login(data.username, data.password);
+
+      const response = await userService.register(data);
+      auth.loginWithJwt(response.headers['x-auth-token']);
 
       this.props.updateUser();
       this.props.history.push('/');
+
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         this.setState({ isProcessing: false });
@@ -83,43 +87,59 @@ class LoginPage extends Component {
 
     return (
       <div className='login-page'>
-        <div className='login-page-form'>
-          <h1>Login</h1>
-          <p>
-            Don't have an account yet?{' '}
-            <Link to='/signup'>
-              <i>Create account</i>
-            </Link>
-          </p>
-          <form onSubmit={this.handleSubmit}>
-            <Input
-              type='text'
-              placeholder='Username'
-              name='username'
-              value={data.username}
-              onChange={this.handleChange}
-              error={errors.username}
-            />
-            <Input
-              type='password'
-              placeholder='Password'
-              name='password'
-              value={data.password}
-              onChange={this.handleChange}
-              error={errors.password}
-            />
+        <div className='row'>
+          <div className='col-md-3'></div>
 
-            <button
-              disabled={this.validate() || isProcessing}
-              className='login-btn continue-to-shipping'
-            >
-              {!isProcessing ? 'Login' : <span>Logining in...</span>}
-            </button>
-          </form>
+          <div className='col-md-6 login-page-form'>
+            <h1>Create Account</h1>
+
+            <p>
+              Already have an account?{' '}
+              <Link to='/login/'>
+                <i>Login</i>
+              </Link>
+            </p>
+            <form onSubmit={this.handleSubmit}>
+          
+
+              <Input
+                type='text'
+                placeholder='Username'
+                name='username'
+                value={data.username}
+                onChange={this.handleChange}
+                error={errors.username}
+              />
+
+              <Input
+                type='password'
+                placeholder='Password'
+                name='password'
+                value={data.password}
+                onChange={this.handleChange}
+                error={errors.password}
+              />
+
+              <button
+                disabled={this.validate() || isProcessing}
+                className='login-btn continue-to-shipping'
+              >
+                {!isProcessing ? (
+                  'Create'
+                ) : (
+                  <span>
+                    Creating... 
+                  </span>
+                )}
+              </button>
+            </form>
+          </div>
+
+          <div className='col-md-3'></div>
         </div>
       </div>
     );
   }
 }
 
-export default LoginPage;
+export default SignupPage;

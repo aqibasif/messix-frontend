@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SearchInput = (props) => {
-  const { value: searchQuery, updateSearch, focus } = props;
+  const { value: searchQuery, updateSearch } = props;
   return (
     <input
       type='text'
@@ -10,11 +10,8 @@ const SearchInput = (props) => {
       placeholder='Search...'
       value={searchQuery}
       onChange={(e) => updateSearch(e.currentTarget.value)}
-      autoFocus={checkBool(focus)}
     />
   );
 };
-
-function checkBool(x) { if(x) {return true;} else {return false;} }
 
 export default SearchInput;
