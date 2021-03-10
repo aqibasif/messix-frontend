@@ -2,19 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { getUsers } from '../services/userService';
 import SearchInput from './searchInput';
 
-const contacts2 = [
-  { _id: '1', username: 'Aqib' },
-  { _id: '2', username: 'Ali' },
-  { _id: '3', username: 'Ahmad' },
-  { _id: '4', username: 'Asad' },
-  { _id: '5', username: 'Bilal' },
-  { _id: '6', username: 'Mawiz' },
-  { _id: '7', username: 'Naeem' },
-];
-
 const Contacts = ({ user, currentContact, selectContact }) => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [contacts, setContacts] = useState(contacts2);
+  const [contacts, setContacts] = useState([]);
   var delay = 0;
 
   const populateUsers = async (user) => {
