@@ -168,6 +168,12 @@ input[type='password']:focus {
   justify-content: center;
 }
 
+@media (max-width: 468px) {
+  .app-body {
+    flex-direction: column;
+  }
+}
+
 /*===\ Contacts \===*/
 
 .contacts {
@@ -266,6 +272,26 @@ input[type='password']:focus {
   transition: all ease-in-out 0.3s;
 
   animation: 0.5s slide-up 0s ease-out both;
+}
+
+@media (max-width: 468px) {
+  .contacts {
+    width: 100%;
+    height: 20vh;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .contact {
+    height: 50px;
+  }
+
+  .selected-contact {
+    height: 50px;
+    width: 96%;
+  }
 }
 
 .selected-contact h5 {
@@ -379,6 +405,14 @@ input[type='password']:focus {
   position: relative;
 }
 
+@media (max-width: 468px) {
+  .chat-section {
+    width: 100%;
+    height: 63vh;
+    padding-top: 5px;
+  }
+}
+
 .no-chat {
   display: flex;
   align-items: center;
@@ -405,16 +439,6 @@ input[type='password']:focus {
   margin: 5px 15px;
 
   animation: 0.3s slide-up-small 0s ease-out both;
-}
-
-@media (max-width: 468px) {
-  .message-box {
-    padding: 10px 12px;
-    border-radius: 15px;
-    width: 150px;
-    margin: 8px 5px;
-    font-size: var(--small-text);
-  }
 }
 
 .receiver {
@@ -480,6 +504,35 @@ input[type='password']:focus {
   backdrop-filter: saturate(180%) blur(15px);
   background-color: rgba(255, 255, 255, 0.3);
   box-shadow: var(--small-shadow);
+}
+
+@media (max-width: 468px) {
+  .message-box {
+    padding: 10px 12px;
+    border-radius: 15px;
+    width: 150px;
+    margin: 8px 5px;
+    font-size: var(--small-text);
+  }
+
+  .contact-name {
+    width: 100%;
+    height: 23px;
+    border-left: 0;
+    border-bottom: 0;
+    top: auto;
+    bottom: 50px;
+  }
+  .contact-name h4 {
+    font-size: 12px;
+  }
+  .message-input {
+    width: 100%;
+  }
+
+  .free-space {
+    padding-top: 73px;
+  }
 }
 
 .message-input .form-group {
