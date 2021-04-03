@@ -73,7 +73,7 @@ input[type='password']:focus {
   --radius: 25px;
 
   --small-shadow: 5px 5px 15px 0 rgba(139, 139, 139, 0.2);
-  --large-shadow: 0px 7px 17px 0 rgba(97, 97, 97, 0.3);
+  --large-shadow: 0px 5px 25px 0 #019df777;
 
   --xlarge-text: 60px;
   --large-text: 40px;
@@ -222,6 +222,7 @@ input[type='password']:focus {
 
 .contact:hover {
   background-color: var(--primary);
+  border-radius: 0 55px 55px 0;
   border-bottom: 0.1px solid var(--primary);
   box-shadow: var(--large-shadow);
 }
@@ -250,6 +251,9 @@ input[type='password']:focus {
 
 .selected-contact {
   height: 80px;
+  width: 88%;
+  border-radius: 55px;
+  /* border-radius: 0 55px 55px 0; */
   padding: 0px 20px;
   display: flex;
   align-items: center;

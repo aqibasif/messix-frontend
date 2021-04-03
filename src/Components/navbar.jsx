@@ -5,7 +5,7 @@ import auth from '../services/authService';
 const Navbar = ({ user }) => {
   return (
     <div className='top-navbar'>
-      <h4>APPROCKET</h4>
+      <h4>MESSIX</h4>
       <div className='user-info'>
         <p>{user && user.username}</p>
 
