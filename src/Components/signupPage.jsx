@@ -69,7 +69,6 @@ class SignupPage extends Component {
 
       this.props.updateUser();
       this.props.history.push('/');
-
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         this.setState({ isProcessing: false });
@@ -86,58 +85,64 @@ class SignupPage extends Component {
     if (auth.getCurrentUser()) return <Redirect to='/' />;
 
     return (
-      <div className='login-page'>
-        <div className='row'>
-          <div className='col-md-3'></div>
+      <>
+        <div className='login-page'>
+          <div className='row'>
+            <div className='col-md-3'></div>
 
-          <div className='col-md-6 login-page-form'>
-            <h1>Create Account</h1>
+            <div className='col-md-6 login-page-form'>
+              <h1>Create Account</h1>
 
-            <p>
-              Already have an account?{' '}
-              <Link to='/login/'>
-                <i>Login</i>
-              </Link>
-            </p>
-            <form onSubmit={this.handleSubmit}>
-          
+              <p>
+                Already have an account?{' '}
+                <Link to='/login/'>
+                  <i>Login</i>
+                </Link>
+              </p>
+              <form onSubmit={this.handleSubmit}>
+                <Input
+                  type='text'
+                  placeholder='Username'
+                  name='username'
+                  value={data.username}
+                  onChange={this.handleChange}
+                  error={errors.username}
+                />
 
-              <Input
-                type='text'
-                placeholder='Username'
-                name='username'
-                value={data.username}
-                onChange={this.handleChange}
-                error={errors.username}
-              />
+                <Input
+                  type='password'
+                  placeholder='Password'
+                  name='password'
+                  value={data.password}
+                  onChange={this.handleChange}
+                  error={errors.password}
+                />
 
-              <Input
-                type='password'
-                placeholder='Password'
-                name='password'
-                value={data.password}
-                onChange={this.handleChange}
-                error={errors.password}
-              />
+                <button
+                  disabled={this.validate() || isProcessing}
+                  className='login-btn continue-to-shipping'
+                >
+                  {!isProcessing ? 'Create' : <span>Creating...</span>}
+                </button>
+              </form>
+            </div>
 
-              <button
-                disabled={this.validate() || isProcessing}
-                className='login-btn continue-to-shipping'
-              >
-                {!isProcessing ? (
-                  'Create'
-                ) : (
-                  <span>
-                    Creating... 
-                  </span>
-                )}
-              </button>
-            </form>
+            <div className='col-md-3'></div>
           </div>
-
-          <div className='col-md-3'></div>
         </div>
-      </div>
+        <div className='footer'>
+          <p>
+            Designed and Developed by{' '}
+            <a
+              target='_blank'
+              rel='noreferrer'
+              href='https://aqibasif.vercel.app'
+            >
+              Muhammad Aqib Asif
+            </a>
+          </p>
+        </div>
+      </>
     );
   }
 }

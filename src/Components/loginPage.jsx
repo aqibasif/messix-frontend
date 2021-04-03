@@ -82,42 +82,56 @@ class LoginPage extends Component {
     if (auth.getCurrentUser()) return <Redirect to='/' />;
 
     return (
-      <div className='login-page'>
-        <div className='login-page-form'>
-          <h1>Login</h1>
-          <p>
-            Don't have an account yet?{' '}
-            <Link to='/signup'>
-              <i>Create account</i>
-            </Link>
-          </p>
-          <form onSubmit={this.handleSubmit}>
-            <Input
-              type='text'
-              placeholder='Username'
-              name='username'
-              value={data.username}
-              onChange={this.handleChange}
-              error={errors.username}
-            />
-            <Input
-              type='password'
-              placeholder='Password'
-              name='password'
-              value={data.password}
-              onChange={this.handleChange}
-              error={errors.password}
-            />
+      <>
+        <div className='login-page'>
+          <div className='login-page-form'>
+            <h1>Login</h1>
+            <p>
+              Don't have an account yet?{' '}
+              <Link to='/signup'>
+                <i>Create account</i>
+              </Link>
+            </p>
+            <form onSubmit={this.handleSubmit}>
+              <Input
+                type='text'
+                placeholder='Username'
+                name='username'
+                value={data.username}
+                onChange={this.handleChange}
+                error={errors.username}
+              />
+              <Input
+                type='password'
+                placeholder='Password'
+                name='password'
+                value={data.password}
+                onChange={this.handleChange}
+                error={errors.password}
+              />
 
-            <button
-              disabled={this.validate() || isProcessing}
-              className='login-btn continue-to-shipping'
-            >
-              {!isProcessing ? 'Login' : <span>Logining in...</span>}
-            </button>
-          </form>
+              <button
+                disabled={this.validate() || isProcessing}
+                className='login-btn continue-to-shipping'
+              >
+                {!isProcessing ? 'Login' : <span>Logining in...</span>}
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
+        <div className='footer'>
+          <p>
+            Designed and Developed by{' '}
+            <a
+              target='_blank'
+              rel='noreferrer'
+              href='https://aqibasif.vercel.app'
+            >
+              Muhammad Aqib Asif
+            </a>
+          </p>
+        </div>
+      </>
     );
   }
 }
