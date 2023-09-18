@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
-import Joi from 'joi-browser';
-import Input from './Common/input';
-import * as userService from '../services/userService';
-import auth from '../services/authService';
-import { Redirect, Link } from 'react-router-dom';
+import React, { Component } from "react";
+import Joi from "joi-browser";
+import Input from "./Common/input";
+import * as userService from "../services/userService";
+import auth from "../services/authService";
+import { Redirect, Link } from "react-router-dom";
 
 class SignupPage extends Component {
   state = {
-    data: { username: '', password: '' },
+    data: { username: "", password: "" },
     errors: {},
     isProcessing: false,
   };
 
   schema = {
-    username: Joi.string().required().label('Username'),
-    password: Joi.string().required().min(5).label('Password'),
+    username: Joi.string().required().label("Username"),
+    password: Joi.string().required().min(5).label("Password"),
   };
 
   componentDidMount() {
@@ -65,10 +65,10 @@ class SignupPage extends Component {
       const { data } = this.state;
 
       const response = await userService.register(data);
-      auth.loginWithJwt(response.headers['x-auth-token']);
+      auth.loginWithJwt(response.headers["x-auth-token"]);
 
       this.props.updateUser();
-      this.props.history.push('/');
+      this.props.history.push("/");
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         this.setState({ isProcessing: false });
@@ -94,7 +94,7 @@ class SignupPage extends Component {
               <h1>Create Account</h1>
 
               <p>
-                Already have an account?{' '}
+                Already have an account?{" "}
                 <Link to='/login/'>
                   <i>Login</i>
                 </Link>
@@ -121,8 +121,9 @@ class SignupPage extends Component {
                 <button
                   disabled={this.validate() || isProcessing}
                   className='login-btn continue-to-shipping'
+                  style={{ cursor: isProcessing ? "auto" : "pointer" }}
                 >
-                  {!isProcessing ? 'Create' : <span>Creating...</span>}
+                  {!isProcessing ? "Create" : <span>Creating...</span>}
                 </button>
               </form>
             </div>
@@ -132,7 +133,7 @@ class SignupPage extends Component {
         </div>
         <div className='footer'>
           <p>
-            Designed and Developed by{' '}
+            Designed and Developed by{" "}
             <a
               target='_blank'
               rel='noreferrer'

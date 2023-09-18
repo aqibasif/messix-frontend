@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import Joi from 'joi-browser';
-import Input from './Common/input';
-import { Link, Redirect } from 'react-router-dom';
-import auth from '../services/authService';
+import React, { Component } from "react";
+import Joi from "joi-browser";
+import Input from "./Common/input";
+import { Link, Redirect } from "react-router-dom";
+import auth from "../services/authService";
 
 class LoginPage extends Component {
   state = {
-    data: { username: '', password: '' },
+    data: { username: "", password: "" },
     errors: {},
     isProcessing: false,
   };
@@ -16,8 +16,8 @@ class LoginPage extends Component {
   }
 
   schema = {
-    username: Joi.string().required().label('Username'),
-    password: Joi.string().required().label('Password'),
+    username: Joi.string().required().label("Username"),
+    password: Joi.string().required().label("Password"),
   };
 
   validate = () => {
@@ -65,7 +65,7 @@ class LoginPage extends Component {
       await auth.login(data.username, data.password);
 
       this.props.updateUser();
-      this.props.history.push('/');
+      this.props.history.push("/");
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         this.setState({ isProcessing: false });
@@ -87,7 +87,7 @@ class LoginPage extends Component {
           <div className='login-page-form'>
             <h1>Login</h1>
             <p>
-              Don't have an account yet?{' '}
+              Don't have an account yet?{" "}
               <Link to='/signup'>
                 <i>Create account</i>
               </Link>
@@ -113,15 +113,16 @@ class LoginPage extends Component {
               <button
                 disabled={this.validate() || isProcessing}
                 className='login-btn continue-to-shipping'
+                style={{ cursor: isProcessing ? "auto" : "pointer" }}
               >
-                {!isProcessing ? 'Login' : <span>Logining in...</span>}
+                {!isProcessing ? "Login" : <span>Logining in...</span>}
               </button>
             </form>
           </div>
         </div>
         <div className='footer'>
           <p>
-            Designed and Developed by{' '}
+            Designed and Developed by{" "}
             <a
               target='_blank'
               rel='noreferrer'
