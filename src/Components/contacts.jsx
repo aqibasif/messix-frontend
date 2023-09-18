@@ -47,7 +47,7 @@ const Contacts = ({ user, currentContact, selectContact }) => {
           onClick={() => selectContact(m)}
         >
           <div className='profile-pic'>
-            <p>{m.username.charAt(0)}</p>
+            <p>{m.username.charAt(0)?.toUpperCase()}</p>
           </div>
           <h5>{m.username}</h5>
         </div>
