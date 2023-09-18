@@ -60,8 +60,8 @@ class SignupPage extends Component {
   };
 
   doSubmit = async () => {
+    this.setState({ isProcessing: true });
     try {
-      this.setState({ isProcessing: true });
       const { data } = this.state;
 
       const response = await userService.register(data);
@@ -71,12 +71,12 @@ class SignupPage extends Component {
       this.props.history.push("/");
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
-        this.setState({ isProcessing: false });
         const errors = { ...this.state.errors };
         errors.username = ex.response.data;
         this.setState({ errors });
       }
     }
+    this.setState({ isProcessing: false });
   };
 
   render() {

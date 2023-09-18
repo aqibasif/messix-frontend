@@ -59,8 +59,8 @@ class LoginPage extends Component {
   };
 
   doSubmit = async () => {
+    this.setState({ isProcessing: true });
     try {
-      this.setState({ isProcessing: true });
       const { data } = this.state;
       await auth.login(data.username, data.password);
 
@@ -68,12 +68,12 @@ class LoginPage extends Component {
       this.props.history.push("/");
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
-        this.setState({ isProcessing: false });
         const errors = { ...this.state.errors };
         errors.username = ex.response.data;
         this.setState({ errors });
       }
     }
+    this.setState({ isProcessing: false });
   };
 
   render() {
